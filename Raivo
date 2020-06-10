@@ -1,6 +1,7 @@
 #include<conio.h>
 #include<iostream>
 #include<stdlib.h>
+#include <fstream>
 
 using namespace std;
 
@@ -14,14 +15,18 @@ int a,b,c,d;
 void inputdata ()
 {
     cout<<"Jumlah Data Yang Akan diinput : "; cin>>b;
+    ofstream datamahasiswa("namamahasiswa.txt");
     d=0;
     for(c=0;c<b;c++)
     {
         d=d+1;
         cout<<"\nData ke-"<<d<<endl;
         cout<<"NAMA\t: ";cin>>batas[a].nama;
+        datamahasiswa<<batas[a].nama<<endl;
         cout<<"NIM\t: ";cin>>batas[a].nim;
+        datamahasiswa<<batas[a].nim<<endl;
         cout<<"IPK\t: ";cin>>batas[a].ipk;
+        datamahasiswa<<batas[a].ipk<<endl;
         a++;
     }
 }
@@ -63,8 +68,8 @@ void caridata()
             cout<<batas[i].nim<<"\t";
             cout<<batas[i].ipk;
             cout<<endl;
-		}
-	}
+        }
+    }
     getch();
 }
 
