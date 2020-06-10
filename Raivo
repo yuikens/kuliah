@@ -15,7 +15,7 @@ int a,b,c,d;
 void inputdata ()
 {
     cout<<"Jumlah Data Yang Akan diinput : "; cin>>b;
-    ofstream datamahasiswa("namamahasiswa.txt");
+    ofstream datamahasiswa("datamahasiswa.txt");
     d=0;
     for(c=0;c<b;c++)
     {
@@ -33,20 +33,23 @@ void inputdata ()
 
 void lihatdata()
 {
-    int i, j;
-    cout<<"\nMenampilkan Data\n";
-    cout<<endl;
-    j=0;
-    for(i=0;i<a;i++)
-    {
-        j=j+1;
-        cout<<j<<" ";
-        cout<<batas[i].nama<<"\t\t";
-        cout<<batas[i].nim<<"\t";
-        cout<<batas[i].ipk;
-        cout<<endl;
+    ifstream myFile;
+    string data, buffer;
+    int i;
+
+    myFile.open("datamahasiswa.txt");
+    for(i=0; i<a; i++) {
+        getline(myFile, buffer);
+        data.append(buffer);
+        getline(myFile, buffer);
+        data.append("\t\t" + buffer);
+        getline(myFile, buffer);
+        data.append("\t" + buffer + "\n");
     }
-    getch();
+
+    cout << data << endl;
+
+    cin.get();
 }
 
 void caridata()
