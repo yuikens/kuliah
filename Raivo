@@ -63,8 +63,8 @@ void caridata()
             cout<<batas[i].nim<<"\t";
             cout<<batas[i].ipk;
             cout<<endl;
-        }
-    }
+		}
+	}
     getch();
 }
 
@@ -120,7 +120,7 @@ int main()
         inputdata();
         goto awal;
 
-    }
+	}
     if(pilih==3)
     {
         caridata();
